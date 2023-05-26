@@ -2,11 +2,11 @@ use proc_macro::TokenStream;
 use proc_macro2::Span;
 use proc_macro_error::{abort, emit_error, proc_macro_error};
 use quote::format_ident;
-use syn::{parse_macro_input, AttrStyle, Data, DataEnum, DeriveInput, Expr, Ident, Meta, MetaList, MetaNameValue, Generics};
+use syn::{parse_macro_input, AttrStyle, Data, DataEnum, DeriveInput, Expr, Ident, Meta, MetaNameValue, Generics};
 
 #[proc_macro_error]
 #[proc_macro_attribute]
-pub fn with_common_variant_data(attr: TokenStream, item: TokenStream) -> TokenStream {
+pub fn with_common_variant_data(_attr: TokenStream, item: TokenStream) -> TokenStream {
     let DeriveInput {
         attrs,
         vis,
