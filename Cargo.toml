@@ -1,0 +1,17 @@
+[workspace]
+members = ["sandbox"]
+
+[package]
+name = "variant_common_data"
+version = "0.1.0"
+edition = "2021"
+authors = ["Vitalii Lukyanov <tukanoid@outlook.com>"]
+
+[lib]
+proc-macro = true
+
+[dependencies]
+proc-macro-error = "1.0"
+proc-macro2 = "1.0.59"
+quote = "1.0.28"
+syn = { version = "2.0.17", features = ["full"] }

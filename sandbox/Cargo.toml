@@ -1,0 +1,8 @@
+[package]
+name = "sandbox"
+version = "0.1.0"
+edition = "2021"
+authors = ["Vitalii Lukyanov <tukanoid@outlook.com>"]
+
+[dependencies]
+variant_common_data = { path = ".." }
