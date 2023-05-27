@@ -23,19 +23,18 @@ enum EnumWithCommonDataVariants<T, K> {
 }
 
 impl<T, K> EnumWithCommonData<T, K> {
-    fn new(common: String, variant: EnumWithCommonDataVariants<T, K>) -> Self { Self { common, variant } }
+    fn new(common: String, variant: EnumWithCommonDataVariants<T, K>) -> Self {
+        Self { common, variant }
+    }
+
     fn common(&self) -> &String { &self.common }
     fn common_mut(&mut self) -> &mut String { &mut self.common }
-    fn variant(&self) -> &EnumWithCommonDataVariants<T, K> {
-        &self.variant
-    }
-    fn variant_mut(&mut self) -> &mut EnumWithCommonDataVariants<T, K> {
-        &mut self.variant
-    }
     fn set_common(&mut self, common: String) { self.common = common; }
-    fn set_variant(&mut self, variant: EnumWithCommonDataVariants<T, K>) {
-        self.variant = variant;
-    }
+
+    fn variant(&self) -> &EnumWithCommonDataVariants<T, K> { &self.variant }
+    fn variant_mut(&mut self) -> &mut EnumWithCommonDataVariants<T, K> { &mut self.variant }
+    fn set_variant(&mut self, variant: EnumWithCommonDataVariants<T, K>) { self.variant = variant; }
+
     fn as_ref_mut(&mut self) -> &mut EnumWithCommonDataVariants<T, K> {
         &mut self.variant
     }
@@ -49,6 +48,7 @@ impl<T, K> AsRef<EnumWithCommonDataVariants<T, K>> for EnumWithCommonData<T, K> 
 
 impl<T, K> std::ops::Deref for EnumWithCommonData<T, K> {
     type Target = EnumWithCommonDataVariants<T, K>;
+
     fn deref(&self) -> &Self::Target { &self.variant }
 }
 
@@ -58,8 +58,7 @@ impl<T, K> std::ops::DerefMut for EnumWithCommonData<T, K> {
 ```
 */
 
-#[with_common_variant_data]
-#[common_data_type = String]
+#[with_common_variant_data(String)]
 #[derive(Debug, Clone)]
 enum EnumWithCommonData<T, K> {
     VarTuple(String, u8, T),
