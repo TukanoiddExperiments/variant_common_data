@@ -59,6 +59,7 @@ impl<T, K> std::ops::DerefMut for EnumWithCommonData<T, K> {
 */
 
 #[with_common_variant_data(String)]
+#[allow(unused)]
 #[derive(Debug, Clone)]
 enum EnumWithCommonData<T, K> {
     VarTuple(String, u8, T),
