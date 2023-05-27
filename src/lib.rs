@@ -7,7 +7,6 @@ use syn::{parse_macro_input, AttrStyle, Data, DataEnum, DeriveInput, Ident, Gene
 #[proc_macro_error]
 #[proc_macro_attribute]
 pub fn with_common_variant_data(attr: TokenStream, item: TokenStream) -> TokenStream {
-    // TODO: embed type inside the attr
     let common_data_type: Type = parse_macro_input!(attr);
 
     let DeriveInput {
